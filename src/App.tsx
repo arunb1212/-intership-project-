@@ -18,7 +18,7 @@ const App = () => {
   const [selectedProducts, setSelectedProducts] = useState<any[]>([])
   const arr:number[]=[1,2,3,4,5]
   const op = useRef<OverlayPanel>(null);
-  const [rowInput, setRowInput] = useState<string>('');
+  const [rowInput, setRowInput] = useState<string>("");
 
   console.log(op)
   const project:()=>Promise<void>=async()=>{
@@ -64,8 +64,9 @@ const App = () => {
  </div>
  <div className="absolute top-[25px] left-[110px] scale-[1.5]">
  <IoChevronDownOutline className="border-none bg-none" type="button"   onClick={(e) => op.current && op.current.toggle(e)} />
-            <OverlayPanel ref={op}>
+            <OverlayPanel  ref={op}>
                 <input
+                className="border "
                   type="text"
                   placeholder="Select rows...."
                   value={rowInput}
@@ -74,7 +75,7 @@ const App = () => {
                 <button
                   onClick={() => {
                     const n = parseInt(rowInput);
-                    if (!isNaN(n) && n > 0) {
+                    if ( n > 0) {
                       setSelectedProducts(data.slice(0, n));
                     }
                   }}
