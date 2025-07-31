@@ -17,7 +17,7 @@ const App = () => {
   const[page,setPage]=useState<number>(1)
   const [selectedProducts, setSelectedProducts] = useState<any[]>([])
   const arr:number[]=[1,2,3,4,5]
-  const op = useRef(null);
+  const op = useRef<OverlayPanel>(null);
   const [rowInput, setRowInput] = useState<string>('');
 
   console.log(op)
@@ -63,7 +63,7 @@ const App = () => {
   }
  </div>
  <div className="absolute top-[25px] left-[110px] scale-[1.5]">
- <IoChevronDownOutline className="border-none bg-none" type="button"   onClick={(e) => op.current.toggle(e)} />
+ <IoChevronDownOutline className="border-none bg-none" type="button"   onClick={(e) => op.current && op.current.toggle(e)} />
             <OverlayPanel ref={op}>
                 <input
                   type="text"
